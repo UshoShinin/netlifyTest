@@ -11,7 +11,7 @@ const App=()=> {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Area de texto</h1>
+        <h1>Área de texto</h1>
         <textarea value={value} onChange={(e)=>{setValue(e.target.value)}}>
 
         </textarea>
