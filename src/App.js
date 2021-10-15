@@ -1,22 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
-
-function App() {
+import { useState } from 'react';
+import { saveAs } from 'file-saver';
+const App=()=> {
+  const [value,setValue] = useState('');
+  const createFile = () =>{
+    const blob = new Blob([value],{type:'text/plain;charset=utf-8'});
+    saveAs(blob,'archivoTest.txt');
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Espero que esto quede :c
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Area de texto</h1>
+        <textarea value={value} onChange={(e)=>{setValue(e.target.value)}}>
+
+        </textarea>
+        <button onClick={createFile}>Guardar</button>
       </header>
     </div>
   );
